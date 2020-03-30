@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #eee;
+    color: green;
+}
+html, body, #box, #main{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#main{
+    display: flex;
+}
+#Left{
+    width: 150px;
+    border-right: 1px solid #ddd;
+}
+#Left, #Right{
+    padding: 12px;
+}
+#Right{
+    flex: 1;
+}
