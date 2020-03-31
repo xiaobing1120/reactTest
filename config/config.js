@@ -12,7 +12,7 @@ module.exports = {
     context: path.resolve(__dirname, '../'), // entry 和 module.rules.loader 选项
     output: {
         path: path.resolve(__dirname, '../dist'), // 目录对应一个绝对路径。
-        publicPath: "http://localhost/dist/",
+        publicPath: process.env.NODE_ENV == 'development' ? '/' : "http://abc.com/",
         filename: process.env.NODE_ENV == 'development' ? 'js/[name].[hash:6].js' : 'js/[name].[chunkhash:6].js', //每个输出 bundle 的名称
         chunkFilename: process.env.NODE_ENV == 'development' ? 'js/[name].[hash:6].js' : 'js/[name].[chunkhash:6].js'  //非入口(non-entry) chunk 文件的名称。
     },
@@ -56,7 +56,8 @@ module.exports = {
     resolve: {
         alias: {
             '@': path.resolve(__dirname, '../'),
-        }
+        },
+        extensions: [".ts", ".js", ".json", ".tsx", ".jsx"]
     },
     //externals: ["react", "react-dom"],
     plugins: [
@@ -65,7 +66,8 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             React: 'react',
-            ReactDOM: 'react-dom'
+            ReactDOM: 'react-dom',
+            //SyntaxHighlighter: 'react-syntax-highlighter'
         })
     ],
     optimization: {

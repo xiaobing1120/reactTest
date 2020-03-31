@@ -13,27 +13,11 @@ import image53435 from '@/assets/img/53435.png';
 
 
 
-function RouteWithSubRoutes(route) {
-    return (<
-        Route path={
-            route.path
-        }
-        render={
-            props => (
-                // pass the sub-routes down to keep nesting
-                <
-                    route.component {
-                    ...props
-                    }
-                    routes={
-                        route.routes
-                    }
-                />
-            )
-        }
-    />
-    );
-}
+// function RouteWithSubRoutes(route) {
+//     return (
+//         <Route path={route.path} render={props => (<route.component {...props} routes={route.routes} />)}/>
+//     );
+// }
 
 class HelloMessage extends React.Component {
     render() {
